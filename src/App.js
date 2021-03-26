@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import StopwatchContainer from "./components/stopwatch/StopwatchContainer";
+import StopwatchContainer from "./components/Stopwatch/StopwatchContainer";
 
 function App() {
   return (
