@@ -2,13 +2,21 @@ import React from 'react';
 import styles from './Stopwatch.module.css'
 
 const Stopwatch = (props) => {
-
-    console.log(props.seq)
-
     return (
-        <div>
-            test init
-        </div>
+        <aside>
+            <span>{props.time.hours}</span>
+            <span>{props.time.minutes}</span>
+            <span>{props.time.seconds}</span>
+
+            <div>
+                <button onClick={() => {
+                    props.toggleTimer()
+                }}>Start
+                </button>
+                <button>Pause</button>
+                <button>Reset</button>
+            </div>
+        </aside>
     )
 }
 
