@@ -5,8 +5,9 @@ import {Observable} from "rxjs";
 
 const StopwatchContainer = (props) => {
     let [timer, setTime] = useState(0);
-    let [status, setStatus] = useState('stopped')
-    let [subscribe, setSubscribe] = useState({})
+    let [status, setStatus] = useState('stopped');
+    let [subscribe, setSubscribe] = useState({});
+    let counter = 0;
 
     let time = timer > 0 ? {
         hours: `0${Math.trunc(timer / 3600)}`.slice(-2),
@@ -30,14 +31,30 @@ const StopwatchContainer = (props) => {
     });
 
     const toggleTimer = () => {
-        if (status === 'stopped') {
+        if (status === 'stopped' || status === 'pause') {
             setSubscribe(sequence$.subscribe())
             setStatus('started')
         }
     }
 
-    return <Stopwatch time={time}
-                      toggleTimer={toggleTimer} />
+    const pauseTimer = () => {
+        if (counter === 0) {
+            counter++;
+            setTimeout(() => {
+                counter = 0;
+            }, 300)
+        } else if (counter === 1 && status === 'started') {
+            setSubscribe(subscribe.unsubscribe())
+            setStatus('pause');
+            counter = 0;
+        }
+    }
+
+    return (
+        <Stopwatch time={time}
+                   toggleTimer={toggleTimer}
+                   pauseTimer={pauseTimer} />
+    )
 }
 
 export default StopwatchContainer

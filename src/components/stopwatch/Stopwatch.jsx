@@ -9,11 +9,12 @@ const Stopwatch = (props) => {
             <span>{props.time.seconds}</span>
 
             <div>
-                <button onClick={() => {
-                    props.toggleTimer()
-                }}>Start
+                <button onClick={() => { props.toggleTimer() }}>
+                    Start
                 </button>
-                <button>Pause</button>
+                <button onClick={() => { props.pauseTimer() }}>
+                    Pause
+                </button>
                 <button>Reset</button>
             </div>
         </aside>
