@@ -12,11 +12,11 @@ const Stopwatch = (props) => {
 
             <div className={styles.buttonWrapper}>
                 <button onClick={() => { props.toggleTimer() }}
-                        className={props.status === 'started' && styles.active} >
+                        className={props.status === 'started' ? styles.active : ''} >
                     {(props.status === 'stopped' || props.status === 'pause' ) ? 'Start' : 'Stop'}
                 </button>
                 <button onClick={() => { props.pauseTimer() }}
-                        className={props.status === 'pause' && styles.active} >
+                        className={props.status === 'pause' ? styles.active : ''} >
                     Pause
                     <span className={styles.info}>i</span>
                     <span className={styles.infoText}>Press twice to pause</span>

@@ -59,7 +59,7 @@ button.active {
 .info {
     position: absolute;
     bottom: 10px;
-    left: calc(50% - 8px);
+    left: calc(50% - 9px);
     width: 16px;
     height: 16px;
 
@@ -77,6 +77,8 @@ button.active {
     width: 204px;
     padding: 1em;
 
+    text-transform: none;
+
     background: #4b4b4b;
     border-radius: 2em;
     opacity: 0;
@@ -88,4 +90,34 @@ button.active {
     display: inline-block;
     opacity: 1;
     transition: opacity 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+    .buttonWrapper button {
+        margin: 3em 1em;
+    }
+}
+
+@media screen and (max-width: 368px) {
+    .buttonWrapper button {
+        width: 70px;
+        height: 70px;
+        font-size: 0.75em;
+        margin: 3em 1em;
+    }
+
+    .info {
+        bottom: 6px;
+    }
+}
+
+@media screen and (max-width: 284px){
+    .buttonWrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .buttonWrapper button {
+        margin: 1.5em;
+    }
 }
